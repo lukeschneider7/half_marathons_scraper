@@ -1,7 +1,7 @@
 # marathons_scraper
 ## Overview
 
-This Jupyter Notebook scrapes upcoming half marathon race data within 200 miles of Virginia Beach, VA, using Python. The project utilizes web scraping techniques with the **BeautifulSoup** library and performs data analysis using **Pandas** and **Plotly** for visualization.
+This Jupyter Notebook scrapes upcoming half marathon race data from the [running in the usa site](https://lukeschneider7.github.io/half_marathons_scraper/half_marathons_scraper.html) within 200 miles of Virginia Beach, VA, using Python. The project utilizes web scraping techniques with the **BeautifulSoup** library and performs data analysis using **Pandas** and **Plotly** for visualization. Ongoing project work is to develop a streamlit or dash dashboard for scraping the site based on user generated parameters
 
 [View Jupyter Notebook Results](https://lukeschneider7.github.io/half_marathons_scraper/half_marathons_scraper.html)
 
