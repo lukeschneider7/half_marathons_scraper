@@ -5,7 +5,7 @@ This Jupyter Notebook scrapes upcoming half marathon race data within 200 miles 
 
 [View Jupyter Notebook Results](https://lukeschneider7.github.io/half_marathons_scraper/half_marathons_scraper.html)
 
-## Contents
+## Project detials
 
 1. **Web Scraping**: Extracts race titles, dates, and cities from the Running in the USA website.
 2. **Data Processing**: Converts race dates to datetime objects, adds a day of the week column, and organizes the data into a DataFrame.
