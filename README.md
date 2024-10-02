@@ -7,7 +7,7 @@
    This project involves extracting and visualizing upcoming half marathons [running in the usa site](https://runningintheusa.com/classic/list/within-200-miles-of-virginia%20beach-va/upcoming/half-marathon/miles-between-250/page-2) within 200 miles of Virginia Beach, VA, using Python. The project utilizes web scraping techniques with the **BeautifulSoup** library and performs data analysis using **Pandas** and **Plotly** for visualization. Ongoing project work is to develop a streamlit dashborad based on customizable user generated parameters such as what distance someone wants to run, as well as date range, and distance from them to show them race options for.
 
 
-[View Jupyter Notebook Results](https://lukeschneider7.github.io/half_marathons_scraper/half_marathons_scraper.html)
+[View Jupyter Notebook Results](https://lukeschneider7.github.io/half_marathons_scraper/half_marathons_scrape.html)
 
 ## Project details
 
