@@ -1,7 +1,10 @@
 # marathons_scraper
 ## Overview
 
-This Jupyter Notebook scrapes upcoming half marathon race data from the [running in the usa site](https://lukeschneider7.github.io/half_marathons_scraper/half_marathons_scraper.html) within 200 miles of Virginia Beach, VA, using Python. The project utilizes web scraping techniques with the **BeautifulSoup** library and performs data analysis using **Pandas** and **Plotly** for visualization. Ongoing project work is to develop a streamlit or dash dashboard for scraping the site based on user generated parameters
+Running is something I've always had a passion for and after having the time of my life running the Shamrock Half Marathon in Virginia Beach last year I've been looking for my next race. As such I thought I would make a tool for helping me find possible races around Virginia to train for. 
+
+This project involves extracting and visualizing upcoming half marathons [running in the usa site](https://lukeschneider7.github.io/half_marathons_scraper/half_marathons_scraper.html) within 200 miles of Virginia Beach, VA, using Python. The project utilizes web scraping techniques with the **BeautifulSoup** library and performs data analysis using **Pandas** and **Plotly** for visualization. Ongoing project work is to develop a streamlit dashborad based on customizable user generated parameters such as what distance someone wants to run, as well as date range, and distance from them to show them race options for.
+
 
 [View Jupyter Notebook Results](https://lukeschneider7.github.io/half_marathons_scraper/half_marathons_scraper.html)
 
