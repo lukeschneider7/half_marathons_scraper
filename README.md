@@ -11,8 +11,9 @@
 
 ## Project details
 
-1. **Web Scraping**: Extracts race titles, dates, and cities from the Running in the USA website.
-2. **Data Processing**:
+1. **Web Scraping**:
+   - Extracts race titles, dates, and cities from the Running in the USA website.
+3. **Data Processing**:
    - Converts race dates to datetime objects, adds a day of the week column, and organizes the data into a DataFrame.
    - Export: saves the processes data to a CSV file.
 4. **Data Analysis**:
