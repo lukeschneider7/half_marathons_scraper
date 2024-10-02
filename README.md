@@ -16,3 +16,7 @@ This Jupyter Notebook scrapes upcoming half marathon race data within 200 miles 
 4. **Visualization**:
    - Interactive bar plots showing counts of races by day of the week and month
 5. **Export**: Saves the processed data to a CSV file.
+
+## In progress
+** Streamlit UI dashboard for customized race scraping ** 
+- generate dashboard with UI taking parameters of user city, race type, date range, and distance from user (radial) to scrape running the usa website and give user .csv file of races along with vizualizations of available races
