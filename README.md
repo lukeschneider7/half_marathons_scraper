@@ -25,4 +25,4 @@
 
 ## In progress
 5. **Streamlit UI dashboard for customized race scraping** 
-- generate dashboard with UI taking parameters of user city, race type, date range, and distance from user (radial) to scrape running the usa website and give user .csv file of races along with vizualizations of available races
+   - generate dashboard with UI taking parameters of user city, race type, date range, and distance from user (radial) to scrape running the    usa website and give user .csv file of races along with vizualizations of available races
