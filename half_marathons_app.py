@@ -5,7 +5,10 @@ import requests
 from bs4 import BeautifulSoup
 import sys
 import json
+import time 
 
+
+crawl_delay = 15
 
 r = requests.get('https://httpbin.org/user-agent')
 useragent = json.loads(r.text)['user-agent']
@@ -16,14 +19,22 @@ st.text_input("Your City (ex. Virginia Beach)", key="city")
 st.text_input("Your State (ex. va)", key="state")
 st.text_input("distance? (5k, 10k, half-marathon, marathon)", key="distance")
 st.text_input("Races within how many miles from you? (25, 50, 100, 200)", key="location")
-
+#race_distance = st.sidebar.selectbox(
+   # 'What distance are you looking to race?',
+    #('5k', '10k', 'half-marathon', 'marathon')
+#)
+#location = str(st.sidebar.selectbox(
+    #'Races within how many miles of you?',
+    #('25', '50', '100', '200')
+#))
 
 # You can access the value at any point with:
 city = st.session_state.city
+state = st.session_state.state
 race_distance = st.session_state.distance
 location = st.session_state.location
-state = st.session_state.state
 
+#
 if location:
     url = f"https://runningintheusa.com/classic/list/within-{location}-miles-of-{city.replace(' ', '%20')}-{state}/upcoming/{race_distance}/miles-between-250/page-1"
     st.write(url)
@@ -68,12 +79,18 @@ def race_df(url):
     else:
         races = -1 
     return races
-new_df = race_df(url)
-
-# Part 1C: Turn this web-scraper into a spider!
-for i in range(2, 7):
-    url = url[:-1] + str(i) # Insert new number into url str for pages 2-6
-    new_df = pd.concat([new_df, race_df(url)], ignore_index=True) # use scraping function as spider
 
 
-st.table(new_df)
+# Only scraper if all parameters are filled out!
+if location and city and state and race_distance:
+    new_df = race_df(url)
+    # Part 1C: Turn this web-scraper into a spider!
+    for i in range(2, 3):
+        url = url[:-1] + str(i) # Insert new number into url str for pages 2-6
+        new_df = pd.concat([new_df, race_df(url)], ignore_index=True) # use scraping function as spider
+        time.sleep(crawl_delay) # delay to not get banned 
+    
+    st.table(new_df)
+
+ 
+
