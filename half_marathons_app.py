@@ -16,7 +16,17 @@ st.text_input("Your City", key="city")
 st.text_input("distance? (5k, 10k, half, marathon)", key="distance")
 st.text_input("Races within how many miles from you? (25, 50, 100, 200)", key="location")
 
+
 # You can access the value at any point with:
 st.session_state.city
-st.session_state.distance
 st.session_state.location
+
+
+url = f"https://runningintheusa.com/classic/list/within-{st.session_state.distance}"\
+"-miles-of-virginia%20beach-va/upcoming/half-marathon/miles-between-250/page-1"
+r = requests.get(url, headers=headers)
+
+# Parsing HTML code 
+mysoup = BeautifulSoup(r.text, 'html.parser')
+
+st.write(url)
