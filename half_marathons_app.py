@@ -7,6 +7,7 @@ import sys
 import json
 import time 
 
+st.title('Uber pickups in NYC')
 
 crawl_delay = 15
 
