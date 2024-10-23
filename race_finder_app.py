@@ -92,6 +92,7 @@ if location and city and state and race_distance:
     new_df['date'] = pd.to_datetime(new_df.date) # Convert date column to datetime
     new_df['day'] = new_df['date'].dt.day_name() # Add day of week column
     new_df = new_df[['day', 'date', 'race', 'city', 'distance']] # Order columns in DF to be more readable
+    new_df = new_df.sort_values(by='date', ascending=True) # Sort by date
 
     city_race_count = new_df.groupby(['city']).agg({'race':'count'}).sort_values(by='race', ascending=False)   
     city_race_count = city_race_count.reset_index(drop=False).rename({'city': 'city'}, axis=1)
@@ -99,7 +100,8 @@ if location and city and state and race_distance:
     st.dataframe( city_race_count[0:5])
 
     st.write("Races not on weekends:")
-    st.dataframe(new_df.query("day != 'Saturday' & day!= 'Sunday'"))
+    weekday_races = new_df.query("day != 'Saturday' & day!= 'Sunday'")
+    st.dataframe(new_df.query(weekday_races))
     
     st.write("all_races")
     st.dataframe(new_df)
