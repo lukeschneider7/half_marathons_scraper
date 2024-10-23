@@ -8,7 +8,7 @@ import json
 import time 
 
 st.title('Race Finder')
-st.markdown('### See first 60 races given parameters below')
+st.markdown('### See first 40 races given parameters below')
 
 crawl_delay = 15
 r = requests.get('https://httpbin.org/user-agent')
