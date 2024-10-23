@@ -101,7 +101,7 @@ if location and city and state and race_distance:
 
     st.write("Races not on weekends:")
     weekday_races = new_df.query("day != 'Saturday' & day!= 'Sunday'")
-    st.dataframe(new_df.query(weekday_races))
+    st.dataframe(weekday_races)
     
     st.write("all_races")
     st.dataframe(new_df)
