@@ -82,6 +82,8 @@ def race_df(url):
     return races
 
 
+
+
 # Only scraper if all parameters are filled out!
 if location and city and state and race_distance:
     new_df = race_df(url)
@@ -91,6 +93,17 @@ if location and city and state and race_distance:
         new_df = pd.concat([new_df, race_df(url)], ignore_index=True) # use scraping function as spider
         time.sleep(crawl_delay) # delay to not get banned 
     
+    new_df['date'] = pd.to_datetime(new_df.date) # Convert date column to datetime
+    new_df['day'] = new_df['date'].dt.day_name() # Add day of week column
+    new_df = new_df[['day', 'date', 'race', 'city', 'distance']] # Order columns in DF to be more readable
+
+
+    city_race_count = new_df.groupby(['city']).agg({'race':'count'}).sort_values(by='race', ascending=False)   
+    city_race_count = city_race_count.reset_index(drop=False).rename({'city': 'city'}, axis=1)
+    st.write(city_race_count[0:5])
+
+    st.write("Races not on weekends:", new_df.query("day != 'Saturday' & day!= 'Sunday'"))
+
     st.table(new_df)
 
  
