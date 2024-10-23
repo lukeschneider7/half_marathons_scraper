@@ -80,8 +80,6 @@ def race_df(url):
     return races
 
 
-
-
 # Only scraper if all parameters are filled out!
 if location and city and state and race_distance:
     new_df = race_df(url)
