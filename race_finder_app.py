@@ -71,10 +71,10 @@ def race_df(url):
     if len(dates) == len(titles) == len(cities) ==len(distances): # ensure I am getting each record (lenths should be the same)
         # Part 1D: Makes races df, use indexing to feature out featured listings at top
         races = pd.DataFrame({
-        'date' : dates[2:], 
-        'race': titles[2:],
-        'city': cities[2:], 
-        'distance': distances[2:]})
+        'date' : dates, 
+        'race': titles,
+        'city': cities, 
+        'distance': distances})
     else:
         races = -1 
     return races
@@ -92,7 +92,7 @@ if location and city and state and race_distance:
     new_df['date'] = pd.to_datetime(new_df.date) # Convert date column to datetime
     new_df['day'] = new_df['date'].dt.day_name() # Add day of week column
     new_df = new_df[['day', 'date', 'race', 'city', 'distance']] # Order columns in DF to be more readable
-    new_df = new_df.sort_values(by='date', ascending=True) # Sort by date
+    new_df = new_df.sort_values(by='date', ascending=True).reset_index() # Sort by date
 
     city_race_count = new_df.groupby(['city']).agg({'race':'count'}).sort_values(by='race', ascending=False)   
     city_race_count = city_race_count.reset_index(drop=False).rename({'city': 'city'}, axis=1)
