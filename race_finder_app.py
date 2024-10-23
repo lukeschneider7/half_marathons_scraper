@@ -60,8 +60,8 @@ def race_df(url):
     titles = [x.string for i, x in enumerate(titles) if i%2==1]
 
     rowspan_1_2_cities = [x.b for x in mysoup.find_all('td', attrs={'rowspan':['1', '2']})]
-    #cities = rowspan_1_2_cities[2:]
-    cities = [x.string for i,x in enumerate(rowspan_1_2_cities) if i%4==0] #and i > 7]
+    cities = rowspan_1_2_cities[2:]
+    cities = [x.string for i,x in enumerate(cities) if i%4==0] #and i > 7]
 
     dates = [x.string for x in mysoup.find_all('div', attrs = {'style':"font-weight:bold"})]
     dates = [x for i,x in enumerate(dates) if i>1 and i<= (len(cities) + 1)]
@@ -71,10 +71,10 @@ def race_df(url):
     if len(dates) == len(titles) == len(cities) ==len(distances): # ensure I am getting each record (lenths should be the same)
         # Part 1D: Makes races df, use indexing to feature out featured listings at top
         races = pd.DataFrame({
-        'date' : dates[2:], 
-        'race': titles[2:],
-        'city': cities[2:], 
-        'distance': distances[2:]})
+        'date' : dates[:], 
+        'race': titles[:],
+        'city': cities[:], 
+        'distance': distances[:]})
     else:
         races = -1 
     return races
