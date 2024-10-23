@@ -48,7 +48,6 @@ def race_df(url):
     Returns:
         races: (df) a DataFrame containg race dates, titles, cities
     """
-
     r = requests.get(url, headers=headers)
     mysoup = BeautifulSoup(r.text, 'html.parser')
  
@@ -71,6 +70,7 @@ def race_df(url):
         'race': titles,
         'city': cities, 
         'distance': distances})
+        st.write("lengths are gucci")
     else:
         races = -1 
     return races
@@ -81,7 +81,7 @@ if location and city and state and race_distance:
     new_df = race_df(url)
     # Part 1C: Turn this web-scraper into a spider!
     for i in range(2, 3):
-        url = url[:-1] + str(i) # Insert new number into url str for pages 2-6
+        url = url[:-1] + str(i) # Insert new number into url str for page 2
         new_df = pd.concat([new_df, race_df(url)], ignore_index=True) # use scraping function as spider
         time.sleep(crawl_delay) # delay to not get banned 
     
@@ -93,7 +93,7 @@ if location and city and state and race_distance:
     city_race_count = new_df.groupby(['city']).agg({'race':'count'}).sort_values(by='race', ascending=False)   
     city_race_count = city_race_count.reset_index(drop=False).rename({'city': 'city'}, axis=1)
     st.write("Number of Races by city:")
-    st.dataframe( city_race_count[0:5])
+    st.dataframe(city_race_count[0:5])
 
     st.write("Races not on weekends:")
     weekday_races = new_df.query("day != 'Saturday' & day!= 'Sunday'")
@@ -101,6 +101,3 @@ if location and city and state and race_distance:
     
     st.write("all_races")
     st.dataframe(new_df)
-
- 
-
