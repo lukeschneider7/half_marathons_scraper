@@ -71,10 +71,10 @@ def race_df(url):
     if len(dates) == len(titles) == len(cities) ==len(distances): # ensure I am getting each record (lenths should be the same)
         # Part 1D: Makes races df, use indexing to feature out featured listings at top
         races = pd.DataFrame({
-        'date' : dates[:], 
-        'race': titles[:],
-        'city': cities[:], 
-        'distance': distances[:]})
+        'date' : dates, 
+        'race': titles,
+        'city': cities, 
+        'distance': distances})
     else:
         races = -1 
     return races
