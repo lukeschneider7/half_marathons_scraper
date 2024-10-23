@@ -7,10 +7,10 @@ import sys
 import json
 import time 
 
-st.title('race finder')
+st.title('Race Finder')
+st.subheader('See first 60 races given parameters below')
 
 crawl_delay = 15
-
 r = requests.get('https://httpbin.org/user-agent')
 useragent = json.loads(r.text)['user-agent']
 headers = {'User-Agent': useragent,
@@ -22,12 +22,10 @@ st.text_input("distance? (5k, 10k, half-marathon, marathon)", key="distance")
 st.text_input("Races within how many miles from you? (25, 50, 100, 200)", key="location")
 #race_distance = st.sidebar.selectbox(
    # 'What distance are you looking to race?',
-    #('5k', '10k', 'half-marathon', 'marathon')
-#)
+    #('5k', '10k', 'half-marathon', 'marathon')#)
 #location = str(st.sidebar.selectbox(
     #'Races within how many miles of you?',
-    #('25', '50', '100', '200')
-#))
+    #('25', '50', '100', '200')#))
 
 # You can access the value at any point with:
 city = st.session_state.city
@@ -100,9 +98,9 @@ if location and city and state and race_distance:
 
     city_race_count = new_df.groupby(['city']).agg({'race':'count'}).sort_values(by='race', ascending=False)   
     city_race_count = city_race_count.reset_index(drop=False).rename({'city': 'city'}, axis=1)
-    st.write(city_race_count[0:5])
+    st.dataframe("Number of Races by city:", city_race_count[0:5])
 
-    st.write("Races not on weekends:", new_df.query("day != 'Saturday' & day!= 'Sunday'"))
+    st.dataframe("Races not on weekends:", new_df.query("day != 'Saturday' & day!= 'Sunday'"))
 
     st.table(new_df)
 
