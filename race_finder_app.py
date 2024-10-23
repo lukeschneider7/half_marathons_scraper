@@ -78,10 +78,10 @@ def race_df(url):
 # Only scraper if all parameters are filled out!
 if location and city and state and race_distance:
     new_df = race_df(url)
+    st.write(new_df)
     # Part 1C: Turn this web-scraper into a spider!
     for i in range(2, 3):
         url = url[:-1] + str(i) # Insert new number into url str for page 2
-        x = race_df(url)
         st.write(race_df(url))
         new_df = pd.concat([new_df, race_df(url)], ignore_index=True) # use scraping function as spider
         time.sleep(crawl_delay) # delay to not get banned 
