@@ -70,7 +70,6 @@ def race_df(url):
         'race': titles,
         'city': cities, 
         'distance': distances})
-        st.write("lengths are gucci")
     else:
         races = -1 
     return races
