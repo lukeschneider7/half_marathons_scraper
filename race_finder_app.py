@@ -61,7 +61,7 @@ def race_df(url):
 
     rowspan_1_2_cities = [x.b for x in mysoup.find_all('td', attrs={'rowspan':['1', '2']})]
     #cities = rowspan_1_2_cities[2:]
-    cities = [x.string for i,x in enumerate(cities) if i%4==0] #and i > 7]
+    cities = [x.string for i,x in enumerate(rowspan_1_2_cities) if i%4==0] #and i > 7]
 
     dates = [x.string for x in mysoup.find_all('div', attrs = {'style':"font-weight:bold"})]
     dates = [x for i,x in enumerate(dates) if i>1 and i<= (len(cities) + 1)]
