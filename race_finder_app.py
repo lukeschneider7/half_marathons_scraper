@@ -33,7 +33,6 @@ state = st.session_state.state
 race_distance = st.session_state.distance
 location = st.session_state.location
 
-
 url = "https://halfmarathonsscraper-qymaruem5etv6hyorcncz6.streamlit.app/"
 if location:
     url = f"https://runningintheusa.com/classic/list/within-{location}-miles-of-{city.replace(' ', '%20')}-{state}/upcoming/{race_distance}/miles-between-250/page-1"
