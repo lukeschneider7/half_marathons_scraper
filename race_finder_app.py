@@ -18,12 +18,12 @@ headers = {'User-Agent': useragent,
 
 st.text_input("Your City (ex. Virginia Beach)", key="city")
 st.text_input("Your State (ex. va)", key="state")
-st.text_input("distance? (5k, 10k, half-marathon, marathon)", key="distance")
+#st.text_input("distance? (5k, 10k, half-marathon, marathon)", key="distance")
 #st.text_input("Races within how many miles from you? (25, 50, 100, 200)", key="location")
-#race_distance = st.sidebar.selectbox(
-   # 'What distance are you looking to race?',
-    #('5k', '10k', 'half-marathon', 'marathon')#)
-location = str(st.sidebar.selectbox(
+race_distance = st.selectbox(
+    'What distance are you looking to race?',
+    ('5k', '10k', 'half-marathon', 'marathon'))
+location = str(st.selectbox(
     'Races within how many miles of you?',
     ('25', '50', '100', '200')))
 
