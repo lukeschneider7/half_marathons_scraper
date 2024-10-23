@@ -18,8 +18,6 @@ headers = {'User-Agent': useragent,
 
 st.text_input("Your City (ex. Virginia Beach)", key="city")
 st.text_input("Your State (ex. va)", key="state")
-#st.text_input("distance? (5k, 10k, half-marathon, marathon)", key="distance")
-#st.text_input("Races within how many miles from you? (25, 50, 100, 200)", key="location")
 race_distance = st.selectbox(
     'What distance are you looking to race?',
     ('5k', '10k', 'half-marathon', 'marathon'))
@@ -30,8 +28,6 @@ location = str(st.selectbox(
 # You can access the value at any point with:
 city = st.session_state.city
 state = st.session_state.state
-race_distance = st.session_state.distance
-#location = st.session_state.location
 
 url = "https://halfmarathonsscraper-qymaruem5etv6hyorcncz6.streamlit.app/"
 if location:
