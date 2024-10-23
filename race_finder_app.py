@@ -8,9 +8,9 @@ import json
 import time 
 
 st.title('Race Finder')
-st.markdown('### See first 20 races given parameters below')
+st.markdown('### See first 40 races given parameters below')
 
-crawl_delay = 15
+crawl_delay = 2.5 # seconds to wait between each page request
 r = requests.get('https://httpbin.org/user-agent')
 useragent = json.loads(r.text)['user-agent']
 headers = {'User-Agent': useragent,
@@ -59,7 +59,7 @@ def race_df(url):
     cities = [x.string for i,x in enumerate(cities) if i%4==0] #and i > 7]
 
     dates = [x.string for x in mysoup.find_all('div', attrs = {'style':"font-weight:bold"})]
-    dates = [x for i,x in enumerate(dates) if i<= (len(cities) - 1)]
+    dates = [x for i,x in enumerate(dates) if i < (len(cities))]
 
     distances = [x.string for x in mysoup.find_all('div', attrs={'style':"padding-left:10px"}) if x.string and (x.string.endswith('run') or x.string.endswith('relay'))]
    
@@ -78,11 +78,9 @@ def race_df(url):
 # Only scraper if all parameters are filled out!
 if location and city and state and race_distance:
     new_df = race_df(url)
-    st.write(new_df)
     # Part 1C: Turn this web-scraper into a spider!
-    for i in range(2, 3):
+    for i in range(2, 5):
         url = url[:-1] + str(i) # Insert new number into url str for page 2
-        st.write(race_df(url))
         new_df = pd.concat([new_df, race_df(url)], ignore_index=True) # use scraping function as spider
         time.sleep(crawl_delay) # delay to not get banned 
     
