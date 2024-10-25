@@ -8,9 +8,6 @@
 
 [View Race finder website](https://race-finder.streamlit.app/)
 
-
-[View Jupyter Notebook Results](https://lukeschneider7.github.io/half_marathons_scraper/half_marathons.html)
-
 ## Project details
 
 1. **Web Scraping**:
@@ -24,6 +21,7 @@
    - Counts of races occurring on each date
 4. **Visualization**:
    - Interactive bar plots showing counts of races by day of the week and month
+     [View Jupyter Notebook Results](https://lukeschneider7.github.io/half_marathons_scraper/half_marathons.html) 
 
 5. **Streamlit UI dashboard for customized race scraping** 
    - generate dashboard with UI taking parameters of user city, race type, state and distance from user (radial) to scrape running the usa website and give user table of races along with vizualizations of available races.
