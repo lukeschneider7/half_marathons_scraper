@@ -1,4 +1,4 @@
-## half_marathons_scraper purpose
+## Race Finder purpose
 
    Running is something I've always had a passion for and after having the time of my life running the Shamrock Half Marathon in Virginia Beach last year I've been looking for my next race. As such I thought I would make a tool for helping me find possible races around Virginia to train for. 
 
